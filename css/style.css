@@ -81,3 +81,46 @@ footer{
 	background: linear-gradient(180deg, rgba(79,79,79,1) 54%, rgba(198,198,198,1) 93%);
 	background-color:#dfdfdf;
 }
+
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+.txtCarrito{
+    text-align: center;
+    padding: 5px;
+}
+.btnVolver{
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    background: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+}
+.tableContainer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+.imgProductCart{
+    width: 30px;
+}
+.txtTabla{
+
+}
+.txtTotal{
+
+}
+.trash{
+    width: 30px;
+}
