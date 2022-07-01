@@ -15,7 +15,7 @@ if(carrito.length == 0){
     const texto = `
     <div class="cartContainer">
         <h1 class='txtCarrito'>El carrito esta vacio</h1>
-        <a class='btnVolver' href='index.html'>
+        <a class='btnVolver' href='../../index.html'>
             <button>VOLVER</button>
         </a>
     </div>`;
