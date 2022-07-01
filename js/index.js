@@ -72,11 +72,17 @@ function agregarAlCarrito (e) {
         let carritoFiltrado = shoppingCart.filter(art => art.id != enCarrito.id)
         shoppingCart = [...carritoFiltrado, {...enCarrito, cantidad: enCarrito.cantidad +1}]
     }
-    console.log(shoppingCart)
     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
 }
 const totalCarrito = () => {
     return shoppingCart.reduce((acc, art) => acc + art.price * art.cantidad, 0)
+}
+
+if (JSON.parse(localStorage.getItem("shoppingCart"))){
+    shoppingCart = JSON.parse(localStorage.getItem(shoppingCart))
+} else {
+    localStorage.setItem("shoppingCart", JSON.stringify([]))
+    shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
 }
 
 const body = document.getElementById('shoppingCart')
