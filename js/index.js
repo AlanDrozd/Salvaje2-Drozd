@@ -19,11 +19,10 @@ articles.push(new Product("06", "Mascara en gel", 1520, "MakeUp", "./assets/imag
 articles.push(new Product("07", "Primer Filler", 1290, "MakeUp", "./assets/images/card/makeup3.jpg"));
 articles.push(new Product("08", "Corrector Liquido", 1290, "MakeUp", "./assets/images/card/makeup4.jpg"));
 
-// console.log(articles)
-let shoppingCart;
+let shoppingCart=[];
 
 if (JSON.parse(localStorage.getItem("shoppingCart"))){
-    shoppingCart = JSON.parse(localStorage.getItem(shoppingCart))
+    shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
 } else {
     localStorage.setItem("shoppingCart", JSON.stringify([]))
     shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
@@ -79,7 +78,7 @@ const totalCarrito = () => {
 }
 
 if (JSON.parse(localStorage.getItem("shoppingCart"))){
-    shoppingCart = JSON.parse(localStorage.getItem(shoppingCart))
+    shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
 } else {
     localStorage.setItem("shoppingCart", JSON.stringify([]))
     shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"))
@@ -91,7 +90,7 @@ if(shoppingCart.length == 0){
     <div class="cartContainer">
         <h3 class='txtCarrito'>El carrito esta vacio</h1>
         <a href='index.html'>
-            <button class='btnVolver'>VOLVER</button>
+            <button class='btnCart'>VOLVER</button>
         </a>
     </div>`;
 body.innerHTML += texto;
@@ -106,25 +105,24 @@ body.innerHTML += texto;
         <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th class="txtTabla">Products</th>
-                    <th class="txtTabla">Cantidad</th>
-                    <th class="txtTabla">Precio</th>
+                    <th>Productos</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
                 </tr>
             </thead>
             <tbody id='tbody'></tbody>
             <tfoot>
                 <tr>
                     <th></th>
-                    <th></th>
-                    <th class="txtTotal">Total:</th>
+                    <th>Total:</th>
                     <th id='total'>$${totalCarrito().toLocaleString()}</th>
                 </tr>
             </tfoot>
         </table>
     </div>
-    <div>
-        <button class="btnVolver">Terminar compra</button>
+    <div class="cartContainer">
+        <button id="vaciar" class="btnCart">Vaciar carrito</button>
+        <button id="terminar" class="btnCart">Terminar compra</button>
     </div>`
     body.innerHTML += table
     const tbody =document.getElementById('tbody')
@@ -133,12 +131,35 @@ body.innerHTML += texto;
         const { id, name, img, price, cantidad} = element;
         const cart = `
         <tr id=${id}>
-            <th><img class='trash' src='assets/images/trash.png' alt='trash'></th>
-            <th class='detallesTabla'><img class= 'imgProdCart' src=${img} alt=''><span class='nameProd>${name}</span></th>
+            <th class='detallesTabla'><img class= 'imgProdCart' src=${img} alt=''><span class='nameProd'>${name}</span></th>
             <th>${cantidad}</th>
             <th>$${(cantidad * price).toLocaleString()}</th>
         </tr>`
     tbody.innerHTML += cart
     }
 
+
+    // <th><button><img class='imgBtnCart btnTrash' src='assets/images/trash.png' alt='trash'></button></th>
+    // <th><button><img class='imgBtnCart btnRemove' src='assets/images/remove.png' alt='removeOne'></but11ton></th>
+    // <th><button><img class='imgBtnCart btnAdd' src='assets/images/add.png' alt='addOne'></button></th>
+    // function removeOne (e) {
+    //     const btn = e.target;
+    //     const id = btn.getAttribute('id') 
+    //     const prodEncontrado = shoppingCart.find(art => art.id != id)
+    //     const enCarrito = shoppingCart.filter(art => art.id == prodEncontrado.id) 
+    //     // if (!enCarrito){
+    //     //     shoppingCart.splice({...prodEncontrado, cantidad: 1})
+    //     // } else {
+    //     //     let carritoFiltrado = shoppingCart.find(art => art.id == enCarrito.id)
+    //     //     shoppingCart = [...carritoFiltrado, {...enCarrito, cantidad: enCarrito.cantidad -1}]
+    //     // }
+    //     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+    // }
+    // console.log(shoppingCart)
+
+    let deleteCart = document.getElementById("vaciar");
+        deleteCart.onclick = () => {
+        shoppingCart = []
+        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+    }
 }

@@ -65,7 +65,7 @@ footer{
 }
 .imgProduct{
     padding: 5px;
-    width: 250px;
+    width: 200px;
 }
 .btnAgregar{
     color: #fff;
@@ -84,7 +84,7 @@ footer{
 
 .cartContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     margin: 5px;
@@ -93,7 +93,7 @@ footer{
     text-align: center;
     padding: 5px;
 }
-.btnVolver{
+.btnCart{
     color: #fff;
     font-size: 10px;
     font-weight: bold;
@@ -102,25 +102,33 @@ footer{
     text-decoration: none;
     border-radius: 5px;
     border: none;
+    margin: 2px;
 }
 .tableContainer{
     display: flex;
     justify-content: center;
-    padding: 10px;
 }
 .btn-container{
     display: flex;
     justify-content: center;
 }
-.imgProductCart{
+table tr th{
+    padding-left: 10px;
+}
+.imgProdCart{
+    width: 70px;
+}
+/* .nameProd{
+    align-items: center;
+    text-align: center;
+} */
+.detallesTabla{
+    display: flex;
+    align-items: center;
+    text-align: center;    
+}
+.imgBtnCart{
     width: 30px;
-}
-.txtTabla{
-
-}
-.txtTotal{
-
-}
-.trash{
-    width: 30px;
+    border: none;
+    text-decoration: none;
 }
